@@ -4,12 +4,16 @@ import com.bank.authorization.dto.UsersDTO;
 import com.bank.authorization.entity.Users;
 import com.bank.authorization.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,8 +30,8 @@ public class UserServiceImp implements UserService {
 
    @Override
    @Transactional(readOnly = true)
-   public Users findByRole(String role) {
-      return userRepository.findByRole(role);
+   public Users findByProfileId(Byte profileId) {
+      return userRepository.findByProfileId(profileId);
    }
 
    @Override
@@ -61,19 +65,24 @@ public class UserServiceImp implements UserService {
 
    @Override
    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-      UsersDTO userDTO = userRepository.findByUsername(username);
-      if(userDTO == null) {
+      Users user = userRepository.findByProfileId(Byte.valueOf(username));
+
+      if(user == null) {
          throw new UsernameNotFoundException(String.format("user '%s' not found", username));
       }
+
+      UsersDTO userDTO = new UsersDTO();
+      userDTO.setUsername(username);
+      userDTO.setPassword(user.getPassword());
+      userDTO.setRole(user.getRole());
+      userDTO.setProfileId(user.getProfileId());
+      userDTO.setAuthority(new SimpleGrantedAuthority(userDTO.getRole()));
+      userDTO.setRoles(new ArrayList<>(Collections.singleton(userDTO.getAuthority())));
 
       return new org.springframework.security.core.userdetails.User(
               userDTO.getUsername(),
               userDTO.getPassword(),
-              userDTO.isAccountNonExpired(),
-              userDTO.isCredentialsNonExpired(),
-              userDTO.isEnabled(),
-              userDTO.isAccountNonLocked(),
-              userDTO.getRoles());
-
+              userDTO.getAuthorities());
    }
+
 }

@@ -6,10 +6,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
-    Users findByRole(String role);
+//    Users findByRole(String role);
 
     List<Users> getAllUsers();
 
+    Users findByProfileId(Byte id);
     Users findById(Byte id);
 
     void createOrUpdateUser(Users user);
