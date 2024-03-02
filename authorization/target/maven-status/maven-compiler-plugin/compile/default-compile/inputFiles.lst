@@ -1,1 +1,12 @@
-/Users/sergey/Projects/!JM/authorization/src/main/java/com/bank/authorization/AuthorizationApplication.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/service/UserService.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/configs/MvcConfig.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/entity/Users.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/controllers/UsersController.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/AuthorizationApplication.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/repositories/UserRepository.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/handler/SuccessUserHandler.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/dto/AuditDTO.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/dto/UsersDTO.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/entity/Audit.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/configs/WebSecurityConfig.java
+/Users/pavelbrosin/IdeaProjects/Project/p_ss_bank_48/authorization/src/main/java/com/bank/authorization/service/UserServiceImp.java

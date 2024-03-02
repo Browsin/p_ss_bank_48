@@ -1,0 +1,6 @@
+FROM openjdk:11
+
+#ADD target/auth.jar auth-app.jar
+ADD authorization/target/authorization.jar auth-app.jap
+ENTRYPOINT ["java", "-jar", "auth-app.jar"]
+
